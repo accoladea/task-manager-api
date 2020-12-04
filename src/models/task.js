@@ -19,21 +19,21 @@ const taskSchema = mongoose.Schema({
     timestamps: true
 })
 
-taskSchema.pre('save', async function(next) {
+// taskSchema.pre('save', async function(next) {
 
-    const task = this
+//     const task = this
 
-    if(task.isModified('completed')) {
-        if(task.completed) {
-            console.log('Great job!')
-            const date = require('date-and-time')
-            const now = new Date()
-            task.description = task.description + ' completed on ' + date.format(now, 'YYYY/MM/DD HH:mm:ss')
-        }
-    }
+//     if(task.isModified('completed')) {
+//         if(task.completed) {
+//             console.log('Great job!')
+//             const date = require('date-and-time')
+//             const now = new Date()
+//             task.description = task.description + ' completed on ' + date.format(now, 'YYYY/MM/DD HH:mm:ss')
+//         }
+//     }
 
-    next()
-})
+//     next()
+// })
 
 const Task = mongoose.model('Task', taskSchema)
 
